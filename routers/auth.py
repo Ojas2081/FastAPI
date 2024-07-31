@@ -64,21 +64,16 @@ def get_password_hash(password):
     return bcrypt_context.hash(password)
 
 def verify_password(plain_password,hashed_password):
-    print("inside verify pass")
-    print("above worked")
     return bcrypt_context.verify(plain_password,hashed_password)
 
 def authenticate_user(username:str,password:str, db: Session=Depends(get_db)):
     user = db.query(models.Users).filter(models.Users.username == username).first()
-    print("user exists")
 
     if not user:
         return False
     
     if not verify_password(password,user.hashed_password):
-        print("password wrong")
         return False
-    print("password correct")
     return user
 
 def create_access_token(username:str,user_id:int,expires_delta:Optional[timedelta]):
@@ -131,7 +126,6 @@ async def login_for_access_token(response:Response, form_data:OAuth2PasswordRequ
     token_expires = timedelta(minutes=60)
     token = create_access_token(user.username,user.id,token_expires)
     response.set_cookie(key="access_token", value=token,httponly=True)
-    print("cookie set")
 
     return True
 
@@ -146,7 +140,6 @@ async def login(request: Request, db: Session=Depends(get_db)):
         await form.create_oauth_form()
         response = RedirectResponse(url = "/todos", status_code = status.HTTP_302_FOUND)
         validate_user_cookie = await login_for_access_token(response=response,form_data=form,db=db)
-        print("hello")
         if not validate_user_cookie:
             msg = "Incorrect Username or Password"
             return templates.TemplateResponse("login.html", {"request":request,"msg":msg})
