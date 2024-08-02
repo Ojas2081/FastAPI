@@ -168,6 +168,10 @@ async def register_user(request:Request, email:str  = Form(...), username:str = 
         msg = "Invalid registration request"
         return templates.TemplateResponse("register.html",{"request":request,"msg":msg})
     
+    if firstname == '' or lastname == '':
+        msg = "Fields are required"
+        return templates.TemplateResponse("register.html",{"request":request,"msg":msg})
+    
     user_model = models.Users()
     user_model.username = username
     user_model.email = email
