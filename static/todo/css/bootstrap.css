@@ -60,7 +60,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #111827;
+  /* background-color: #fff; */
 }
 
 [tabindex="-1"]:focus {
@@ -1572,7 +1573,8 @@ pre code {
 .table-primary,
 .table-primary > th,
 .table-primary > td {
-  background-color: #b8daff;
+  background-color: #1f2937;
+  /* background-color: #b8daff; */
 }
 
 .table-primary th,
@@ -1704,14 +1706,16 @@ pre code {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #fdfdfe;
+  background-color: #111827;
+  /* background-color: #fdfdfe; */
 }
 
 .table-light th,
 .table-light td,
 .table-light thead th,
 .table-light tbody + tbody {
-  border-color: #fbfcfc;
+  border-color: #181818;
+  /* border-color: #fbfcfc; */
 }
 
 .table-hover .table-light:hover {

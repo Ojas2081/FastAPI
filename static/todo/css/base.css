@@ -1,6 +1,7 @@
 
 body {
-  background: #fafafa;
+  background: #111827;
+  /* background: #fafafa; */
   color: #33333a;
   padding-top: 70px;
 }
@@ -10,7 +11,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-color {
-  background-color: #0e76a8 ;
+  background-color: #1f2937 ;
+  /* background-color: #0e76a8 ; */
 }
 
 .strike-through-td {
